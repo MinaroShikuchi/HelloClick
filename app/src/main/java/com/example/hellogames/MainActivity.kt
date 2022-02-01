@@ -1,5 +1,6 @@
 package com.example.hellogames
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -17,9 +18,9 @@ class MainActivity : AppCompatActivity() {
         val clickMeButton : Button = findViewById(R.id.button2)
         val resetButton : Button = findViewById(R.id.button)
         val reverseButton : Button = findViewById(R.id.button3)
-
         val normalButton : Button = findViewById(R.id.button4)
         val bigButton : Button = findViewById(R.id.button5)
+        val nextButton : Button = findViewById(R.id.button6)
 
         counterTextView.text = counter.toString()
 
@@ -44,6 +45,11 @@ class MainActivity : AppCompatActivity() {
 
         bigButton.setOnClickListener {
             step = step.sign.times(2)
+        }
+
+        nextButton.setOnClickListener {
+            val intent = Intent(this, ListActivity::class.java)
+            startActivity(intent)
         }
 
     }
