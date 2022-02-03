@@ -1,5 +1,6 @@
 package com.example.hellogames
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -29,6 +30,7 @@ class ListActivity : AppCompatActivity() {
         data.add(MovieCharacter("Han", "Solo", "Star Wars", true))
         data.add(MovieCharacter("Tom", "Riddle", "Harry Potter", false))
 
+        val nextButton : View = findViewById(R.id.activity_main_list_fab)
         val movieCharacterRecyclerView: RecyclerView = findViewById(R.id.activity_main_list)
         movieCharacterRecyclerView.layoutManager = LinearLayoutManager(this)
         movieCharacterRecyclerView.setHasFixedSize(true)
@@ -45,6 +47,10 @@ class ListActivity : AppCompatActivity() {
                 LinearLayoutManager.VERTICAL
             )
         )
+        nextButton.setOnClickListener {
+            val intent = Intent(this, GameListActivity::class.java)
+            startActivity(intent)
+        }
     }
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
